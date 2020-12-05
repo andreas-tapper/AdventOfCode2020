@@ -32,10 +32,17 @@ public class ExpenseReportTest extends TestCase
     /**
      * Rigourous Test :-)
      */
-    public void testReport()
+    public void testReportPartOne()
     {
         var report = new ExpenseReport(List.of(1721, 979, 366, 299, 675, 1456));
 
-        assertEquals(514579, report.getResult());
+        assertEquals(514579, report.getResultPartOne());
+    }
+
+    public void testReportPartTwo()
+    {
+        var report = new ExpenseReport(List.of(1721, 979, 366, 299, 675, 1456));
+
+        assertEquals(241861950, report.getResultPartTwo());
     }
 }
