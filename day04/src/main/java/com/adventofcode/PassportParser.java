@@ -23,6 +23,8 @@ public class PassportParser {
                     builder.add(pair[0], pair[1]);
                 }
             }
+
+            passports.add(builder.build());
         } catch (IOException e) {
             e.printStackTrace();
         }

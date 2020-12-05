@@ -2,9 +2,6 @@ package com.adventofcode;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-
-import static java.util.stream.Collectors.toList;
 
 public class App
 {
@@ -24,7 +21,7 @@ public class App
 
         try(var reader = new BufferedReader(new FileReader(file.getAbsoluteFile().toString(), Charset.forName("UTF-8")))) {
             var passports = PassportParser.Parse(reader);
-            System.out.println(String.format("The answer is: %d", passports.stream().filter(Passport::isValid).count()));
+            System.out.println(String.format("The answer is: %d", passports.stream().filter(Passport::isComplete).count()));
         }
     }
 }
