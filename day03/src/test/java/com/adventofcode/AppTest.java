@@ -43,4 +43,41 @@ public class AppTest extends TestCase
             assertEquals(7, map.countTrees());
         }
     }
+
+    public void testProblemPartOne() throws IOException {
+        var file = getClass().getClassLoader().getResource("problem.txt").getFile();
+        try(var reader = new BufferedReader(new FileReader(file, Charset.forName("UTF-8")))) {
+            var map = TravelMap.of(reader);
+            assertEquals(280, map.countTrees());
+        }
+    }
+
+    public void testMaps() throws IOException {
+        var file = getClass().getClassLoader().getResource("problem.txt").getFile();
+        TravelMap map1;
+        SecondTravelMap map2;
+        try(var reader = new BufferedReader(new FileReader(file, Charset.forName("UTF-8")))) {
+            map1 = TravelMap.of(reader);
+        }
+        try(var reader = new BufferedReader(new FileReader(file, Charset.forName("UTF-8")))) {
+            map2 = SecondTravelMap.of(reader);
+        }
+        assertEquals(map1.countTrees(), map2.countTrees(3, 1));
+    }
+
+    public void testExamplePartTwo() throws IOException {
+        var file = getClass().getClassLoader().getResource("inputs.txt").getFile();
+        try(var reader = new BufferedReader(new FileReader(file, Charset.forName("UTF-8")))) {
+            var map = SecondTravelMap.of(reader);
+            assertEquals(336, map.countTrees());
+        }
+    }
+
+    public void testProblemPartTwo() throws IOException {
+        var file = getClass().getClassLoader().getResource("problem.txt").getFile();
+        try(var reader = new BufferedReader(new FileReader(file, Charset.forName("UTF-8")))) {
+            var map = SecondTravelMap.of(reader);
+            assertEquals(4355551200l, map.countTrees());
+        }
+    }
 }
