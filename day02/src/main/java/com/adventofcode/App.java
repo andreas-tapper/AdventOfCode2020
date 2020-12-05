@@ -27,11 +27,16 @@ public class App
         }
 
         try(var reader = new BufferedReader(new FileReader(file.getAbsoluteFile().toString(), Charset.forName("UTF-8")))) {
-            var matches = reader.lines()
-                    .map(PasswordAndPolicy::of)
+            var partOneMatches = reader.lines()
+                    .map(PasswordAndPolicy::withSledRentalPolicy)
                     .filter(PasswordAndPolicy::match)
                     .count();
-            System.out.println(String.format("The answer is: %d", matches));
+            var partTwoMatches = reader.lines()
+                    .map(PasswordAndPolicy::withTobogganCorporate)
+                    .filter(PasswordAndPolicy::match)
+                    .count();
+            System.out.println(String.format("The answer of part one is: %d", partOneMatches));
+            System.out.println(String.format("The answer of part two is: %d", partTwoMatches));
         }
     }
 }

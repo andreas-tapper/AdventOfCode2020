@@ -1,11 +1,11 @@
 package com.adventofcode;
 
-public class Policy {
-    private final Integer lowerBound;
-    private final Integer upperBound;
-    private final char letter;
+public class SledRentalPlacePolicy {
+    protected final Integer lowerBound;
+    protected final Integer upperBound;
+    protected final char letter;
 
-    public Policy(Integer lowerBound, Integer upperBound, char letter) {
+    public SledRentalPlacePolicy(Integer lowerBound, Integer upperBound, char letter) {
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
         this.letter = letter;
