@@ -63,7 +63,6 @@ public class AppTest extends TestCase
 
     public void testProblemPartTwo() {
         var game = new MemoryGame();
-        assertEquals(175594, game.play30000000(1L,20L,8L,12L,0L,14L));
-
+        assertEquals(63644L, game.play30000000(1L,20L,8L,12L,0L,14L));
     }
 }
